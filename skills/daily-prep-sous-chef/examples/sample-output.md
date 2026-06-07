@@ -12,7 +12,7 @@ Handled
 - Updated yesterday's intro loop to waiting because you already sent the email.
 
 Needs approval
-- Book dinner at 7:30 PM for 2? If yes, I’ll use the prepared reservation path.
+- Book dinner at 7:30 PM for 2? If yes, I'll use the prepared reservation path.
 - Send the priority-contact follow-up draft?
 
 Blocked
