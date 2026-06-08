@@ -33,6 +33,14 @@ Run `Collect -> Connect -> Execute`.
    - Synthesize across surfaces before reporting. Look for links between a task, sent email, calendar hold, document, relationship, and project.
    - Decide what the signal means: priority, waiting, stale, blocked, ready-to-draft, ready-to-book-with-approval, ready-to-update, or safe to ignore.
    - Prefer a chief-of-staff read over a mechanical list. Ask: what would the user want already handled, clarified, drafted, moved, or teed up?
+   - For every priority item, create a synthesis map before executing:
+     - `Signal`: what triggered this now?
+     - `Sources checked`: which systems were inspected?
+     - `Strategic read`: why does this matter, and what is the likely next bottleneck?
+     - `Prepared artifact`: draft, research packet, asset map, shortlist, prompt, booking path, task update, or exact decision.
+     - `Human decision`: the smallest approval or input needed, if any.
+     - `Priority rank`: what should the user do first?
+   - Do not stop at "needs clarification" when accessible docs, inbox, calendar, repos, current public pages, or project notes can provide useful starting context.
    - Apply the user's operating-system lenses internally:
      - `Allocation`: is time, energy, attention, money, and relationship motion aligned with the user's stated priorities?
      - `Removal`: what should be killed, deferred, simplified, or not accepted?
@@ -55,6 +63,11 @@ Check:
 - Contacts/relationships: priority people and current loops.
 - Active projects/repos/tools: current project signals, blockers, PRs/issues/checks where relevant.
 - Priority map: current goals, important projects, key people, energy-giving commitments, and energy-draining commitments.
+
+Before concluding:
+- Reconcile all due-today priority tasks with today's calendar. Do not let the first inbox blocker crowd out the same-day sweep.
+- If a calendar hold/event is live but a related task looks completed, verify whether the loop is truly resolved or needs a same-day confirm/kill action.
+- Rank live items so the user knows what matters most.
 
 ## Priority Map
 
@@ -133,6 +146,18 @@ For docs/notes:
 - Is a working doc stale, unfinished, or waiting on the user?
 - Can I prepare a summary, attendee context, next-action list, or decision packet?
 
+For build, launch, or project tasks:
+- What would the user hand to a builder, designer, analyst, or collaborator?
+- Where are the existing assets, docs, repos, examples, access clues, billing/domain warnings, and current public surface?
+- What is the smallest v0 that advances the strategy without overbuilding?
+- Can I prepare a prompt, spec, asset map, example scan, shortlist, or decision memo now?
+
+For announcements or beta launches:
+- Is a broadcast announcement enough, or is direct distribution to specific people the real next move?
+- Who are the first 3-10 specific people based on recent meetings, relationship context, customer/user fit, and project notes?
+- What direct ask should each person get?
+- What proof point would make the ask stronger?
+
 For relationships:
 - Who matters here?
 - Why now?
@@ -156,6 +181,7 @@ Then use:
 Rules:
 - Put today's actions before future prep.
 - Keep the message short.
+- Include priority order when multiple live items need attention.
 - Point to drafts/tasks/docs rather than pasting long copy into chat.
 - Name inaccessible surfaces only when access failure blocks useful prep or changed since last run.
 - Do not include a positive `nothing blocked` section.
