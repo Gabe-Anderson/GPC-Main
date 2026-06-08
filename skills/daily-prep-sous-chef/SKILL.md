@@ -51,6 +51,8 @@ Run `Collect -> Connect -> Execute`.
    - Escalate only when judgment, approval, money, booking, external send, ambiguous completion, destructive action, or external write risk requires the user.
    - Stay quiet when there is no useful change and no blocker, unless the run contract requires a response.
 
+For scheduled usage, every run should use the full loop. Afternoon prep is not a light check-in; it should deeply sweep what changed since morning and update what matters.
+
 ## Daily Scan
 
 Check:
