@@ -67,6 +67,7 @@ Check:
 Before concluding:
 - Reconcile all due-today priority tasks with today's calendar. Do not let the first inbox blocker crowd out the same-day sweep.
 - If a calendar hold/event is live but a related task looks completed, verify whether the loop is truly resolved or needs a same-day confirm/kill action.
+- If one important inbox/task blocker appears early, verify it has not crowded out another same-day logistics gap, priority-list item, project subtask, or live calendar hold.
 - Rank live items so the user knows what matters most.
 
 ## Priority Map
