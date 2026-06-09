@@ -28,6 +28,7 @@ Run `Collect -> Connect -> Execute`.
    - Gather the relevant surfaces before deciding what matters: calendar, inbox, sent mail, tasks, docs, contacts, memory/notes, active projects, and repos/tools where relevant.
    - Start with priority surfaces: declared weekly priorities, today's calendar, inbox/sent deltas, waiting loops, next-72-hour logistics, priority relationships, and active project work.
    - Preserve structure: confirmed events vs holds, parent tasks with subtasks, work vs personal accounts, active projects vs historical noise.
+   - Produce a structured extraction ledger before interpretation. A surface is not "checked" until the important fields have been extracted or the access gap is recorded.
 
 2. Connect
    - Synthesize across surfaces before reporting. Look for links between a task, sent email, calendar hold, document, relationship, and project.
@@ -40,6 +41,7 @@ Run `Collect -> Connect -> Execute`.
      - `Prepared artifact`: draft, research packet, asset map, shortlist, prompt, booking path, task update, or exact decision.
      - `Human decision`: the smallest approval or input needed, if any.
      - `Priority rank`: what should the user do first?
+   - Rank risks and opportunities before output. Ask why an opportunity is or is not good for the user now against stated priorities, energy, relationships, and active projects.
    - Do not stop at "needs clarification" when accessible docs, inbox, calendar, repos, current public pages, or project notes can provide useful starting context.
    - Apply the user's operating-system lenses internally:
      - `Allocation`: is time, energy, attention, money, and relationship motion aligned with the user's stated priorities?
@@ -53,16 +55,58 @@ Run `Collect -> Connect -> Execute`.
 
 For scheduled usage, every run should use the full loop. Afternoon prep is not a light check-in; it should deeply sweep what changed since morning and update what matters.
 
+## Mandatory Operating Gates
+
+Do not write the final daily output until these gates are complete.
+
+1. Big Thing Radar
+   - Convert raw signals into a ranked candidate board before deciding what to surface.
+   - Score each candidate by time proximity, relationship importance, missing logistics, external dependency, declared priority fit, opportunity upside, downside if missed, and whether the user likely assumes it is handled.
+   - Prioritize real people commitments, priority relationships, same-day/72-hour logistics, active priority projects, and sent-mail state changes over generic inbox noise.
+
+2. Structured Extraction Ledger
+   - Treat scans as field-extraction contracts, not vibes.
+   - Calendar fields: account/calendar, title, date/time, real vs hold, busy/free, attendees, RSVP state, organizer, location, conference/link, travel/prep needs, relationship/context match, missing fields, next safe move, priority score.
+   - Task/open-loop fields: list/project, parent/subtask context, due date, waiting state, linked email/thread/doc/event, latest sent-mail state, current blocker, next safe move, priority score.
+   - Relationship fields: person, importance tier, context, why now, last known touch, latest signal, useful enrichment source, next high-leverage move.
+   - Project fields: source task/repo/doc, current state, artifact needed, collaborator handoff needs, open decision, smallest v0.
+
+3. Specialist Passes
+   - For non-trivial runs, make separate passes before synthesis: calendar/logistics, inbox/sent/open loops, tasks/projects, relationship/opportunity, and docs/repos/project artifacts.
+   - Each pass returns typed findings: `risks`, `opportunities`, `prepared_artifacts`, `blocked_decisions`, and `relationship_flags`.
+   - The final synthesis ranks across passes; do not let the first interesting item hijack the run.
+
+4. Sent-Mail Reconciliation
+   - Before saying the user needs to act, check whether they already acted in sent mail or the latest thread state since the last run.
+   - For every waiting loop, recently surfaced blocker, draft/review task, and task with a thread ID, inspect relevant sent deltas or thread messages.
+   - If the user replied, update the loop to waiting/status and do not surface it as needing input.
+
+5. Priority Relationship Prep
+   - For important people in the next 72 hours, inbox/sent deltas, or active tasks, enrich from the smallest useful set of sources: relationship/context index, sent history, contacts, recent docs, meeting transcripts/notes if available, project notes, and current public/web/social signals.
+   - Use meeting transcripts as auxiliary context, not as a complete record. Absence of a transcript is not absence of relationship context.
+   - Use public/current searches when recent announcements, posts, funding, launches, job changes, or thesis-relevant news could change the prep.
+   - Output the relationship read as: who matters, why now, what signal changed, and what the user should discuss or do next.
+
+6. Regression And Red-Team Check
+   - Before reporting done, check known failure patterns:
+     - User already replied but stale task/run state says input is needed.
+     - Task is completed but live calendar hold still has missing logistics.
+     - Priority project task needs a real artifact, not a reminder.
+     - Launch task needs direct human distribution/intake prep, not only broadcast copy.
+     - Upcoming people event has missing location, unconfirmed attendee, or priority relationship relevance.
+   - Ask: "Given the extraction ledger, what important thing would the user be annoyed I missed?"
+   - If the answer identifies a real risk or opportunity, handle it or surface it before sending.
+
 ## Daily Scan
 
 Check:
-- Calendar: today first, next 72 hours second. Identify missing location, link, prep, attendee, travel, reservation, or confirmation details.
+- Calendar: today first, next 72 hours second. Extract title, time, attendees, RSVP state, location/link, real vs hold, prep/travel needs, relationship/context match, and missing-logistics flags.
 - Inbox: important unread/recent threads, logistics, waiting replies, priority people, bills/admin, and threads connected to active goals.
-- Sent mail: detect completed replies and move related loops into waiting/status rather than resurfacing stale drafts.
+- Sent mail: detect completed replies and move related loops into waiting/status rather than resurfacing stale drafts. Reconcile sent mail before saying a blocker still needs input.
 - Tasks: due today, upcoming, stale, and waiting loops. Treat tasks as executable work orders, not reminders to repeat back.
 - Task hierarchy: preserve active project parent/master tasks and subtasks. Avoid scattering project work across the backlog.
-- Docs/Drive/notes: project plans, agendas, itineraries, drafts, decks, decision docs, operating-system docs.
-- Contacts/relationships: priority people and current loops.
+- Docs/Drive/notes: project plans, agendas, itineraries, drafts, decks, decision docs, operating-system docs, and meeting transcripts/notes tied to important upcoming people or opportunities.
+- Contacts/relationships: priority people and current loops. Important people should trigger relationship prep, not just logistics.
 - Active projects/repos/tools: current project signals, blockers, PRs/issues/checks where relevant.
 - Priority map: current goals, important projects, key people, energy-giving commitments, and energy-draining commitments.
 
@@ -70,6 +114,7 @@ Before concluding:
 - Reconcile all due-today priority tasks with today's calendar. Do not let the first inbox blocker crowd out the same-day sweep.
 - If a calendar hold/event is live but a related task looks completed, verify whether the loop is truly resolved or needs a same-day confirm/kill action.
 - If one important inbox/task blocker appears early, verify it has not crowded out another same-day logistics gap, priority-list item, project subtask, or live calendar hold.
+- Run a red-team pass against the extraction ledger: what important thing would the user be annoyed you missed?
 - Rank live items so the user knows what matters most.
 
 ## Priority Map
@@ -130,6 +175,9 @@ If the user's task system has priority lists, treat placement as a priority sign
 For each calendar item:
 - Is this real, optional, stale, or a hold?
 - Are time, location, link, attendees, travel, and prep clear?
+- If it says coffee/lunch/drinks/dinner, is there an actual physical place or only a video link?
+- Who accepted, declined, is optional, or has not responded?
+- Does any attendee match priority relationship context?
 - Is a confirmation text/email useful?
 - Does this create a next-72-hour logistics issue?
 
@@ -143,9 +191,11 @@ For sent mail:
 - Did the user already complete a drafted action?
 - Should an existing task move from draft/review to waiting/status?
 - Is any follow-up condition now clear?
+- Does the latest sent message contradict stale task/run state?
 
 For docs/notes:
 - Is there a document tied to today's or this week's commitments?
+- Are there meeting transcripts or notes for a person the user is about to meet, especially a priority relationship?
 - Is a working doc stale, unfinished, or waiting on the user?
 - Can I prepare a summary, attendee context, next-action list, or decision packet?
 
@@ -166,6 +216,7 @@ For relationships:
 - Why now?
 - What signal changed?
 - What is the next high-leverage move?
+- What has happened since the last touch that should shape the conversation?
 
 For opportunities and commitments:
 - Is this aligned with the user's declared priorities?
