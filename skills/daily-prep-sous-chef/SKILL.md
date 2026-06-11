@@ -67,7 +67,9 @@ Do not write the final daily output until these gates are complete.
 2. Structured Extraction Ledger
    - Treat scans as field-extraction contracts, not vibes.
    - Calendar fields: account/calendar, title, date/time, real vs hold, busy/free, attendees, RSVP state, organizer, location, conference/link, travel/prep needs, relationship/context match, missing fields, next safe move, priority score.
-   - Task/open-loop fields: list/project, parent/subtask context, due date, waiting state, linked email/thread/doc/event, latest sent-mail state, current blocker, next safe move, priority score.
+   - Task/open-loop fields: list/project, parent/subtask context, due date, last updated, waiting state, linked email/thread/doc/event/repo/tool, latest sent-mail state, current blocker, next safe move, priority score.
+   - Coverage invariant: every due-today, recently updated, or priority-list task must appear exactly once in the ledger with one of these states: `handled`, `drafted`, `prepared`, `waiting_verified`, `blocked_after_sources_checked`, or `deferred_with_reason`.
+   - Do not mark a task blocked until every obvious link, pointer, title/sender search, project note, repo index, or named system in the task has been inspected or recorded as inaccessible.
    - Relationship fields: person, importance tier, context, why now, last known touch, latest signal, useful enrichment source, next high-leverage move.
    - Project fields: source task/repo/doc, current state, artifact needed, collaborator handoff needs, open decision, smallest v0.
 
@@ -80,6 +82,7 @@ Do not write the final daily output until these gates are complete.
    - Before saying the user needs to act, check whether they already acted in sent mail or the latest thread state since the last run.
    - For every waiting loop, recently surfaced blocker, draft/review task, and task with a thread ID, inspect relevant sent deltas or thread messages.
    - If the user replied, update the loop to waiting/status and do not surface it as needing input.
+   - Reconcile run-log/open-loop state against the live task and thread state. Completed tasks, closed tasks, sent replies, confirmed intros, and latest-thread resolution override stale run memory.
 
 5. Priority Relationship Prep
    - For important people in the next 72 hours, inbox/sent deltas, or active tasks, enrich from the smallest useful set of sources: relationship/context index, sent history, contacts, recent docs, meeting transcripts/notes if available, project notes, and current public/web/social signals.
@@ -92,6 +95,9 @@ Do not write the final daily output until these gates are complete.
      - User already replied but stale task/run state says input is needed.
      - Task is completed but live calendar hold still has missing logistics.
      - Priority project task needs a real artifact, not a reminder.
+     - Project/repo cleanup task needs source inspection and a cleanup/readiness packet, not silence or a vague "missing source" blocker.
+     - Code/algorithm task needs a repo/source locator pass before asking the user where the code lives.
+     - Reimbursement/receipt task with an email link needs the linked thread or fallback subject/sender search inspected before reporting.
      - Launch task needs direct human distribution/intake prep, not only broadcast copy.
      - Upcoming people event has missing location, unconfirmed attendee, or priority relationship relevance.
    - Ask: "Given the extraction ledger, what important thing would the user be annoyed I missed?"
@@ -103,17 +109,20 @@ Check:
 - Calendar: today first, next 72 hours second. Extract title, time, attendees, RSVP state, location/link, real vs hold, prep/travel needs, relationship/context match, and missing-logistics flags.
 - Inbox: important unread/recent threads, logistics, waiting replies, priority people, bills/admin, and threads connected to active goals.
 - Sent mail: detect completed replies and move related loops into waiting/status rather than resurfacing stale drafts. Reconcile sent mail before saying a blocker still needs input.
-- Tasks: due today, upcoming, stale, and waiting loops. Treat tasks as executable work orders, not reminders to repeat back.
+- Tasks: due today, upcoming, recently updated, stale, and waiting loops. Treat tasks as executable work orders, not reminders to repeat back.
+- Recently updated tasks: treat updates since the previous run as first-class signals. For each, establish at least one source-checked state and one next safe move before suppressing or surfacing it.
+- Task links and pointers: follow URLs, email/thread IDs, doc links, repo paths, named projects, named tools, and quoted titles in task notes. If a direct link is stale or account-specific, search likely connected surfaces by title, subject, sender, or project name before blocking.
 - Task hierarchy: preserve active project parent/master tasks and subtasks. Avoid scattering project work across the backlog.
 - Docs/Drive/notes: project plans, agendas, itineraries, drafts, decks, decision docs, operating-system docs, and meeting transcripts/notes tied to important upcoming people or opportunities.
 - Contacts/relationships: priority people and current loops. Important people should trigger relationship prep, not just logistics.
-- Active projects/repos/tools: current project signals, blockers, PRs/issues/checks where relevant.
+- Active projects/repos/tools: current project signals, blockers, PRs/issues/checks where relevant. For source/code tasks, inspect project rules, repo indexes, priority maps, named repos, and recent source pointers before calling the work blocked.
 - Priority map: current goals, important projects, key people, energy-giving commitments, and energy-draining commitments.
 
 Before concluding:
 - Reconcile all due-today priority tasks with today's calendar. Do not let the first inbox blocker crowd out the same-day sweep.
 - If a calendar hold/event is live but a related task looks completed, verify whether the loop is truly resolved or needs a same-day confirm/kill action.
 - If one important inbox/task blocker appears early, verify it has not crowded out another same-day logistics gap, priority-list item, project subtask, or live calendar hold.
+- Run a fresh-task adversarial audit: if the user deliberately placed this task here to test daily prep, what would they expect handled or prepared?
 - Run a red-team pass against the extraction ledger: what important thing would the user be annoyed you missed?
 - Rank live items so the user knows what matters most.
 
