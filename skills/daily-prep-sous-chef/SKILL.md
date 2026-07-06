@@ -171,6 +171,15 @@ Red - never do without explicit approval:
 
 Tasks are an input queue and status surface, not the output. Do not park work in task notes when a closer safe action exists.
 
+Creating a new task is a last resort. First search active tasks semantically across relevant lists and parent/subtask hierarchy.
+
+Before adding any task:
+- Search exact title, likely aliases, vendor/person/project names, and intent-level terms.
+- Treat matching parent tasks and embedded subtasks as valid active task surfaces even when the proposed title differs.
+- Prefer updating the existing task/subtask with concise source links and next action over creating a standalone duplicate.
+- If a duplicate already exists, consolidate useful notes/links into the canonical task first, then mark the duplicate complete only when the duplicate relationship is verified. Do not delete by default.
+- For reimbursements, invoices, receipts, and vendor/trip loops, consolidate new evidence into the existing reimbursement/vendor task when one is active instead of creating parallel tasks for the same lane.
+
 For each live task, ask:
 - Can I do this now?
 - Can I draft the outbound message?
